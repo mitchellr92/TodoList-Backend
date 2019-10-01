@@ -1,0 +1,23 @@
+{
+  "name": "todo-list-backend",
+  "version": "1.0.0",
+  "description": "todo-list backend",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon index.js"
+  },
+  "repository": "https://github.com/mitchellr92/TodoList-Backend",
+  "author": "mitchellr92@live.com",
+  "license": "MIT",
+  "private": null,
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "knex": "^0.19.4",
+    "morgan": "^1.9.1",
+    "sqlite3": "^4.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.3"
+  }
+}
