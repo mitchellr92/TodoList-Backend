@@ -67,6 +67,33 @@ server.delete("/api/todos/:id", (req, res) => {
     });
 });
 
+server.post("/api/checkList", (req, res) => {
+  const newItem = req.body;
+
+  if (newItem.title) {
+    db("checkList")
+      .insert(newItem)
+      .then(itemId => {
+        res.status(200).json(itemId);
+      })
+      .catch(err => {
+        res.status(500).json({ message: "Failed to create new item" });
+      });
+  } else {
+    res.status(500).json({ message: "Missing title" });
+  }
+});
+
+server.get("/api/checkList", (req, res) => {
+  db("checkList")
+    .then(checkList => {
+      res.status(200).json(checkList);
+    })
+    .catch(err => {
+      res.status(500).json({ message: "Failed to get checkList" });
+    });
+});
+
 server.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
 });
