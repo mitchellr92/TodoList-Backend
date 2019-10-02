@@ -67,7 +67,7 @@ server.delete("/api/todos/:id", (req, res) => {
     });
 });
 
-server.post("/api/checkList", (req, res) => {
+server.post("/api/todos/:id/checkList", (req, res) => {
   const newItem = req.body;
 
   if (newItem.title) {
@@ -84,7 +84,7 @@ server.post("/api/checkList", (req, res) => {
   }
 });
 
-server.get("/api/checkList", (req, res) => {
+server.get("/api/todos/:id/checkList", (req, res) => {
   db("checkList")
     .then(checkList => {
       res.status(200).json(checkList);
@@ -94,7 +94,7 @@ server.get("/api/checkList", (req, res) => {
     });
 });
 
-server.delete("/api/checklist/:id", (req, res) => {
+server.delete("/api/todos/:id/checklist/:id", (req, res) => {
   const { id } = req.params;
 
   db("checkList")
